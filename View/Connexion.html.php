@@ -3,12 +3,12 @@
         <form action="index.php" method="post">
             <h2>Se connecter</h2>
             <div class="inputbox">
-                <input type="text" required="required">
+                <input type="text" required="required" name="login">
                 <span>Nom d'utilisateur</span>
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="password" required="required">
+                <input type="password" required="required" name="psw">
                 <span>Mot de passe</span>
                 <i></i>
             </div>
