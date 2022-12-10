@@ -49,7 +49,7 @@
             #code...
         }else {
             $_SESSION["user_connect"] = $user;
-            header("location:index.php?x=2");
+            header("location:index.php");
         }
     }
 
