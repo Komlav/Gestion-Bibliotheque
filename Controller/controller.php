@@ -14,12 +14,12 @@
         load_view("Accueil","base.accueil");
     }
     if (isset($_GET["act"])) {
-        if (!isset($_SESSION["user-connect"])) {
+        if (!isset($_SESSION["user_connect"])) {
             header("location:index.php?base=connexion");
         }
-        switch ($_GET["x"]) {
-            case 'connexion':
-                load_view("Connexion","base.connexion");
+        switch ($_GET["act"]) {
+            case 'valide':
+                load_view("valide","base.accueil");
                 break;
             
             default:
@@ -46,10 +46,11 @@
     function se_connecter(string $login, string $password):void{
         $user = find_user_by_login_password($login, $password);
         if ($user == null) {
-            #code...
+            $_GET["erreur"] = true;
+            header("location:index.php?base=connexion");
         }else {
             $_SESSION["user_connect"] = $user;
-            header("location:index.php");
+            header("location:index.php?act=valide");
         }
     }
 
