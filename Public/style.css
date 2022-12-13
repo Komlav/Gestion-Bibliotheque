@@ -48,6 +48,11 @@ img{
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    box-shadow: 0 2px 10px black;
-    border-image-outset: 10px;
+}
+
+.entete {
+    width: 100%;
+    height: auto;
+    display: flex;
+    background: darkblue;
 }

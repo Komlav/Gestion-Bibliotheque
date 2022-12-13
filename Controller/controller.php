@@ -11,9 +11,6 @@
                         header("location:index.php?base=connexion");
                     }
                     switch ($_GET["act"]) {
-                        case 'user_interface':
-                            load_view("interface","base");
-                            break;
                         case 'logout':
                             session_destroy();
                             unset($_SESSION["user_connect"]);
@@ -23,6 +20,8 @@
                             # code...
                             break;
                     }
+                }else {
+                    load_view("interface","base");
                 }
             default:
                 # code...
@@ -39,7 +38,6 @@
             case 'connexion':
                 se_connecter($login,$psw);
                 break;
-            
             default:
                 # code...
                 break;
@@ -53,7 +51,7 @@
             header("location:index.php?base=connexion");
         }else {
             $_SESSION["user_connect"] = $user;
-            header("location:index.php?base=connected&act=user_interface");
+            header("location:index.php?base=connected");
         }
     }
 
