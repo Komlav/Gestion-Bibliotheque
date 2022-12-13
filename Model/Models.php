@@ -9,4 +9,17 @@
         }
         return null;
     }
+
+    function find_user_profil_by_id(int $id):string|null{
+        foreach (find_all_user_profil() as $profil) {
+            if ($profil["id_user"] == $id) {
+                return $profil["image"];
+            }
+        }
+        return null;
+    }
+
+    function show_icon(string $f_name):string{
+        return "<img src='Sources/Assets/Profil/$f_name' alt='icon'>";
+    }
 ?>

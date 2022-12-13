@@ -18,8 +18,8 @@
             header("location:index.php?base=connexion");
         }
         switch ($_GET["act"]) {
-            case 'valide':
-                load_view("valide","base.accueil");
+            case 'user_interface':
+                load_view("interface","base");
                 break;
             
             default:
@@ -46,11 +46,10 @@
     function se_connecter(string $login, string $password):void{
         $user = find_user_by_login_password($login, $password);
         if ($user == null) {
-            $_GET["erreur"] = true;
             header("location:index.php?base=connexion");
         }else {
             $_SESSION["user_connect"] = $user;
-            header("location:index.php?act=valide");
+            header("location:index.php?act=user_interface");
         }
     }
 
