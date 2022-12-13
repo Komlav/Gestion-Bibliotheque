@@ -12,8 +12,9 @@
 }
 
 body{
+    width: 90%;
     min-height: 100vh;
-    overflow: hidden;
+    
 }
 
 .container{
@@ -263,7 +264,7 @@ body{
 .details .recentOders{
     position: relative;
     display: grid;
-    min-height: 500px;
+    min-height: 280px;
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
@@ -308,8 +309,36 @@ body{
 .details .recentOders table tr:last-child{
     border-bottom: none;
 }
+.details .recentOders table td:last-child{
+    text-align: end;
+}
 
 .details .recentOders table tbody tr:hover{
     background: var(--blue);
     color: var(--white);
+}
+
+.details .recentOders table tr td{
+    padding: 10px;
+}
+
+.details .recentOders table tr td:nth-child(2){
+    text-align: end;
+}
+.details .recentOders table tr td:nth-child(3){
+    text-align: center;
+}
+.status.delivred,.status.return{
+    padding: 2px 4px;
+    color: var(--white);
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.status.delivred{
+    background: rgb(0, 255, 85);
+}
+.status.return{
+    background: rgb(255, 153, 0);
 }

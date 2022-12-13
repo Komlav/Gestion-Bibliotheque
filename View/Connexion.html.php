@@ -1,9 +1,4 @@
 <div class="box">
-    <?php
-        if (isset($erreur)) {
-            print("<h3>Login/mot de passe invalide !</h3>");
-        }
-    ?>
     <div class="form">
         <form action="index.php" method="post">
             <h2>Se connecter</h2>
