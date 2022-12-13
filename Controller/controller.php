@@ -6,10 +6,10 @@
                 load_view("Connexion","base.connexion");
                 break;
             case 'connected':
+                if (!isset($_SESSION["user_connect"])) {
+                    header("location:index.php?base=connexion");
+                }
                 if (isset($_GET["act"])) {
-                    if (!isset($_SESSION["user_connect"])) {
-                        header("location:index.php?base=connexion");
-                    }
                     switch ($_GET["act"]) {
                         case 'logout':
                             session_destroy();
