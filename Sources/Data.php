@@ -13,3 +13,10 @@
         ];
     }
 ?>
+
+id
+nom
+prenom
+login
+password
+role

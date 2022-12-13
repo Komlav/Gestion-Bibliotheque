@@ -1,7 +1,12 @@
 <?php
     require_once("Sources/Data.php");
+    function PDO(){
+        return new PDO("mysql:host=localhost;dbname=gestion bibliotheque","root","");
+    }
+    
     function find_user_by_login_password(string $login, string $password):array|null{
-        $users = find_all_users();
+        // $users = find_all_users();
+        $users = PDO() -> query("SELECT * FROM `users`");
         foreach ($users as $user) {
             if($user["login"] == $login && $user["password"] == $password){
                 return $user;
