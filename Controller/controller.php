@@ -5,27 +5,31 @@
             case 'connexion':
                 load_view("Connexion","base.connexion");
                 break;
-            
+            case 'connected':
+                if (isset($_GET["act"])) {
+                    if (!isset($_SESSION["user_connect"])) {
+                        header("location:index.php?base=connexion");
+                    }
+                    switch ($_GET["act"]) {
+                        case 'user_interface':
+                            load_view("interface","base");
+                            break;
+                        case 'logout':
+                            session_destroy();
+                            unset($_SESSION["user_connect"]);
+                            header("location:index.php");
+                            break;
+                        default:
+                            # code...
+                            break;
+                    }
+                }
             default:
                 # code...
                 break;
         }
     }else {
         load_view("Accueil","base.accueil");
-    }
-    if (isset($_GET["act"])) {
-        if (!isset($_SESSION["user_connect"])) {
-            header("location:index.php?base=connexion");
-        }
-        switch ($_GET["act"]) {
-            case 'user_interface':
-                load_view("interface","base");
-                break;
-            
-            default:
-                # code...
-                break;
-        }
     }
 
     /* Vérification des informations saisies par l'utilisateur */
@@ -49,7 +53,7 @@
             header("location:index.php?base=connexion");
         }else {
             $_SESSION["user_connect"] = $user;
-            header("location:index.php?act=user_interface");
+            header("location:index.php?base=connected&act=user_interface");
         }
     }
 
