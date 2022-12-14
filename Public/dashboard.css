@@ -1,6 +1,8 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 :root{
@@ -12,9 +14,8 @@
 }
 
 body{
-    width: 90%;
     min-height: 100vh;
-
+    overflow-x: hidden;
 }
 
 .container{
@@ -45,7 +46,7 @@ body{
 .navigation ul li{
     position: relative;
     width: 100%;
-    list-style-type: none;
+    list-style: none;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
@@ -71,7 +72,7 @@ body{
 }
 
 .navigation ul li:hover a,
-.navigation ul li .hovered a{
+.navigation ul li.hovered a{
     color: var(--blue);
 }
 
@@ -95,11 +96,11 @@ body{
     height: 60px;
     line-height: 60px;
     text-align: start;
-    white-space: normal;   
+    white-space: nowrap;   
 }
 
 .navigation ul li:hover a::before,
-.navigation ul li .hovered a::before{
+.navigation ul li.hovered a::before{
     content: '';
     position: absolute;
     top: -50px;
@@ -112,11 +113,11 @@ body{
     pointer-events: none;
 }
 .navigation ul li:hover a::after,
-.navigation ul li .hovered a::after{
+.navigation ul li.hovered a::after{
     content: '';
     position: absolute;
-    top: 60px;
     right: 0;
+    bottom: -50px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -126,13 +127,14 @@ body{
 }
 
 .main{
-    position: relative;
+    position: absolute;
     width: calc(100% - 300px);
     left: 300px;
     min-height: 100vh;
     background-color: var(--white);
     transition: 0.5s;
 }
+
 .main.active{
     width: calc(100% - 80px);
     left: 80px;
@@ -152,7 +154,6 @@ body{
     top: 0;
     width: 60px;
     height: 60px;
-    background: #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,7 +176,9 @@ body{
     height: 40px;
     border-radius: 40px;
     padding: 5px 20px;
+    outline: none;
     padding-left: 30px;
+    font-size: 18px;
     border: 1px solid var(--black2);
 }
 
@@ -218,6 +221,7 @@ body{
     background: var(--white);
     padding: 30px;
     border-radius: 20px;
+    display: flex;
     justify-content: space-between;
     cursor: pointer;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
@@ -236,7 +240,7 @@ body{
     margin-top: 5px;
 }
 
-.cardBox .card .iconBox{
+.cardBox .card .iconBx{
     font-size: 3.5em;
     color: var(--black2);
 }
@@ -247,7 +251,7 @@ body{
 
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBox{
+.cardBox .card:hover .iconBx{
     color: var(--white);
 }
 
@@ -258,13 +262,13 @@ body{
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 30px;
-    /* margin-top: 10px; */
+    /* margin-top: 10px;  */
 }
 
 .details .recentOders{
     position: relative;
     display: grid;
-    min-height: 280px;
+    min-height: 500px;
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
@@ -322,12 +326,16 @@ body{
     padding: 10px;
 }
 
+.details .recentOders table tr td:last-child{
+    text-align: end;
+}
 .details .recentOders table tr td:nth-child(2){
     text-align: end;
 }
 .details .recentOders table tr td:nth-child(3){
     text-align: center;
 }
+
 .status.delivred,.status.return{
     padding: 2px 4px;
     color: var(--white);
@@ -374,7 +382,7 @@ body{
     padding: 12px 10px;
 }
 
-.recentCustomers table tr h4{
+.recentCustomers table tr td h4{
     font-size: 16px;
     font-weight: 500;
     line-height: 1.2em;
@@ -386,10 +394,72 @@ body{
 }
 
 .recentCustomers table tr:hover{
-    background: var(--blue);
+    background: var(--blue); 
     color: var(--white);
 }
 
 .recentCustomers table tr:hover td h4 span{
-    color: var();
+    color: var(--white);
+}
+
+@media(max-width: 991px){
+    .navigation{
+        left:-300px;
+    }
+    .navigation.active{
+        width: 300px;
+        left: 0;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+    .main.active{
+        left: 300px;
+    } 
+    .cardBox{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 768px){
+    .details{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .recentOders{
+         overflow-x: auto;
+    }
+    .status.inprogress{
+        white-space: nowrap;
+    }
+}
+
+@media(max-width: 480px){
+    .cardBox{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .cardHeader h2{
+        font-size: 20px;
+    }
+    .user{
+        min-width: 40px;
+    }
+    .navigation{
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active{
+        width: 100%;
+        left: 0;
+    }
+    .toggle{
+        z-index: 10001;
+    }
+    .main.active .toggle{
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: #fff;
+    }
 }
