@@ -11,6 +11,9 @@
                 }
                 if (isset($_GET["act"])) {
                     switch ($_GET["act"]) {
+                        case 'customers':
+                            load_view("Dashboard/Customers","base.dashboard");   
+                            break;              
                         case 'logout':
                             session_destroy();
                             unset($_SESSION["user_connect"]);
@@ -21,7 +24,7 @@
                             break;
                     }
                 }else {
-                    load_view("interface","base");
+                    load_view("Dashboard/Home","base.dashboard");
                 }
             default:
                 # code...
