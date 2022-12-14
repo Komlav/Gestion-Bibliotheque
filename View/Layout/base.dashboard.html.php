@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Public/dashboard.css">
+    <!-- <link rel="stylesheet" href="Public/Liste.css"> -->
 </head>
 <body>
     <!-- <div class="entete">
@@ -59,7 +60,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="index.php?base=connected&act=auteurs">
                         <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
                         <span class="title">Messages</span>
                     </a>
@@ -73,7 +74,7 @@
                 <li>
                     <a href="#">
                         <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                        <span class="title">Settings<"/span>
+                        <span class="title">Setting</span>
                     </a>
                 </li>
                 <li>

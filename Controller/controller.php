@@ -13,7 +13,10 @@
                     switch ($_GET["act"]) {
                         case 'customers':
                             load_view("Dashboard/Customers","base.dashboard");   
-                            break;              
+                            break;   
+                        case 'auteurs':
+                            load_view("Dashboard/Lister.auteurs","base.dashboard");
+                            break;           
                         case 'logout':
                             session_destroy();
                             unset($_SESSION["user_connect"]);
