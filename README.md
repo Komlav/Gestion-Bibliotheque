@@ -23,7 +23,7 @@ Classe : GLRS A
             - Créer un compte
         - Adhérent 
             - Lister ses demandes(tout, encours, retournés)
-        RP: Responsable Prets
+        - RP: Responsable Prets
             - Valider un pret
             - Enrégistrer un prêt
             - Lister les prets en cours

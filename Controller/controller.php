@@ -11,6 +11,13 @@
                 }
                 if (isset($_GET["act"])) {
                     switch ($_GET["act"]) {
+                        case 'ryn':
+                            load_view("Dashboard/Lister.rayons","base.dashboard");   
+                            break;   
+                        case 'prêts':
+                            $data["prets"] = lister_prets($_GET);
+                            load_view("Dashboard/Lister.prets","base.dashboard",$data);   
+                            break;   
                         case 'ouvgs':
                             load_view("Dashboard/Lister.ouvrages","base.dashboard");   
                             break;   
@@ -24,7 +31,7 @@
                         case 'logout':
                             session_destroy();
                             unset($_SESSION["user_connect"]);
-                            header("location:index.php");
+                            header("location:index.php?base=connexion");
                             break;
                         default:
                             # code...
@@ -45,6 +52,9 @@
     if (isset($_POST["btn-save"])){
         extract($_POST);
         switch ($_POST["btn-save"]) {
+            case 'Trier':
+                header("location:index.php?base=connected&act=prêts&mode=flt&etat=$etat");
+                break;
             case 'connexion':
                 se_connecter($login,$psw);
                 break;
@@ -54,6 +64,20 @@
         }
     }
 
+    function lister_prets(array $request):array{
+        if ($request["mode"] == "flt") {
+            if ($request["etat"] == "rtd") {
+                return find_prets_retardataire();
+            }elseif ($request["etat"] == "ecr") {
+                return find_prets_retardataire(false);
+            }elseif ($request["etat"] == "rtn") {
+                // return find_prets_encours();
+        }
+        }
+        if($request["mode"] == "all" || $request["etat"] == "all"){
+            return find_all_prets();
+        }
+    }
 
     function se_connecter(string $login, string $password):void{
         $user = find_user_by_login_password($login, $password);

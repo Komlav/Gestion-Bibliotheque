@@ -4,7 +4,7 @@
 <div class="details">
     <div class="recentOders">
         <div class="cardHeader">
-            <h2>LISTE DES AUTEURS DE LA BIBLIOTHEQUE</h2>
+            <h2>LISTE DES AUTEURS</h2>
             <a href="#" class="btn">View All</a>
         </div>
         <table>

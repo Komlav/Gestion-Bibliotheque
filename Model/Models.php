@@ -101,14 +101,21 @@
         }
     }
 
-    function find_prets_retardataire():array{
+    function find_prets_retardataire(bool $signe=true):array{
         $retardaires = [];
         foreach (find_all_prets() as $pret) {
             $dateDebut = strtotime($pret["Date"]."+2 week +1 day"); 
             $DateFin = strtotime($pret["DateRéel"]);
-            if ($dateDebut > $DateFin ) {
-                $retardaires[] = $pret;
+            if ($signe==true) {
+                if ($dateDebut > $DateFin ) {
+                    $retardaires[] = $pret;
+                }
+            }else {
+                if ($dateDebut < $DateFin ) {
+                    $retardaires[] = $pret;
+                }
             }
+            
         }
         return $retardaires;
     }

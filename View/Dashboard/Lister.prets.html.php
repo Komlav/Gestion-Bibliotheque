@@ -2,33 +2,41 @@
     require_once("Sources/Data.php"); 
     require_once("Model/Models.php");
 ?>
-
-<div class="form">
-<?php 
-        if (isset($_POST["btn-save"])) {
-            print("<h3>LISTE DES PRETS EN RETAIRE DE LA BIBLIOTHEQUE</h3>");
-        }else {
-            print("<h3>LISTE DES PRETS DE LA BIBLIOTHEQUE</h3>");
-        }
-    ?>
-    <form action="index.php?x=5" method="POST">
-    <h4>Filtré par : </h4>
-        <div class="labelle">
-            <label for="etat">ETAT</label>
-            <select name="etat" id="">
-                <option value="En retard">En retard</option>
-                <option value="Encours">Encours</option>
-                <option value="Retourner">Retourner</option>
-            </select>
-        </div>
-        <input type="submit" value="Valider" name="btn-save">
-    </form>
-</div>
-<div class="details">
-    <div class="recentOders">
+<div class="details tout">
+    <div class="recentOders tout">
         <div class="cardHeader">
-            <h2>LISTE DES AUTEURS DE LA BIBLIOTHEQUE</h2>
-            <a href="#" class="btn">View All</a>
+            <?php 
+                if (isset($_GET["etat"])) {
+                    if ($_GET["etat"] == "rtd") {
+                        print("<h2>LISTE DES PRETS EN RETAIRE</h2>");
+                    }elseif ($_GET["etat"] == "ecr") {
+                        print("<h2>LISTE DES PRETS ENCOURS</h2>");
+                    }elseif ($_GET["etat"]== "rtn") {
+                        print("<h2>LISTE DES PRETS RETOURNER</h2>");
+                    }
+                }if($_GET["mode"] == "all" || $_GET["etat"] == "all"){
+                    print("<h2>LISTE DES PRETS</h2>");
+                }
+            ?>
+            <div class="form">
+                <form action="index.php?x=5" method="POST" class="form btn">
+                    <div>
+                        <h4>Filtré par : </h4>
+                    </div>
+                    <div class="labelle">
+                        <label for="etat">ETAT</label>
+                        <select name="etat" id="">
+                            <option value="all">Tous</option>
+                            <option value="rtd">En retard</option>
+                            <option value="ecr">encours</option>
+                            <option value="rtn">retourner</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit" value="Trier" name="btn-save" class="btn bot">
+                    </div>
+                </form>
+            </div>
         </div>
         <table>
             <thead>
@@ -39,6 +47,7 @@
                     <th>DATE DE PRET</th>
                     <th>DATE DE RETOUR </th>
                     <th>DATE REEL</th>
+                    <th>ETAT</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,13 +61,15 @@
                         <td><?=($ouv); ?></td>
                         <td><?=($pret["Date"]); ?></td>
                         <td><?=($pret["DateRetour"]); ?></td>
-                        <td><?=($pret["DateRéel"]); ?></td>
+                        <td><?=$pret["DateRéel"]; ?></td> 
+                        <td><?=$pret["Etat"]; ?></td> 
+                        
                     </tr>
                 <?php endforeach ?>
             </tbody>
         </table>
-        </div>
-        <div class="recentCustomers">
+    </div>
+        <!-- <div class="recentCustomers">
             <div class="cardHeader">
                 <h2>Vous pouvez...</h2>
             </div>
@@ -80,5 +91,6 @@
                     <td><a href="index.php?base=connected&act=auteurs"><h4>Lister les auteurs</h4></a></td>
                 </tr>
             </table>
+        </div> -->
     </div>
 </div>

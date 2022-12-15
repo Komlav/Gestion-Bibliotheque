@@ -12,8 +12,8 @@
         <div class="profil">
             
             <div class="info">
-                <span><?=$_SESSION["user_connect"]["nom"]." ".$_SESSION["user_connect"]["prenom"]?></span>
-                <span><?=$_SESSION["user_connect"]["role"]?></span>
+                <span><?=$_SESSION["user_connect"]["nom"]." ".$_SESSION["user_connect"]["prenom"];?></span>
+                <h1><?=$_SESSION["user_connect"]["role"];?></h1>
             </div>
         </div>
         <div class="navigation">
@@ -22,17 +22,18 @@
                 <?php if($_SESSION["user_connect"]["role"] == "RB"):?>
                     <?=use_case("index.php?base=connected&act=ouvgs", "Gérer les ouvrages", "book-outline")?>
                     <?=use_case("index.php?base=connected&act=auteurs", "Gérer les auteurs", "people-outline")?>
-                    <?=use_case("#", "Gérer les rayons", "layers-outline")?>
+                    <?=use_case("index.php?base=connected&act=ryn", "Gérer les rayons", "layers-outline")?>
                     <?=use_case("#", "Gérer les exemplaires", "library-outline")?>
                 <?php endif ?>
                 <?php if($_SESSION["user_connect"]["role"] == "RP"):?>
-                    <?=use_case("index.php?base=connected&act=demandes", "Gérer les prêts", "people-outline")?>
+                    <?=use_case("index.php?base=connected&act=prêts&mode=all", "Lister les prêts", "list-outline")?>
+                    <?=use_case("index.php?base=connected&act=demandes", "Gérer les demandes", "bookmarks-outline")?>
                 <?php endif ?>
                 <?php if($_SESSION["user_connect"]["role"] == "AD"):?>
                     <?=use_case("index.php?base=connected&act=demandes", "Voir ses demandes", "hand-left")?>
                 <?php endif ?>
                 <?=use_case("#","Mon profil","person-circle-outline")?>
-                <?=use_case("index.php?base=connected&act=logout","Se déconnecter","log-out-outline")?>
+                <?=use_case("index.php","Se déconnecter","log-out-outline")?>
             </ul>
         </div>
 

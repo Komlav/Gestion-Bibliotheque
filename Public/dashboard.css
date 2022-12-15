@@ -76,7 +76,7 @@ body{
 
 .navigation ul li:hover,
 .navigation ul li.hovered{
-    background: var(--white);
+    background: whitesmoke;
 }
 
 .navigation ul li:nth-child(1){
@@ -92,6 +92,13 @@ body{
     color: var(--white);
 }
 
+
+
+.navigation ul li:active a:active,
+.navigation ul li:active a:active{
+    color: var(--blue);
+    background: var(--white);
+}
 .navigation ul li:hover a,
 .navigation ul li.hovered a{
     color: var(--blue);
@@ -130,7 +137,7 @@ body{
     height: 50px;
     border-radius: 50%;
     background: transparent;
-    box-shadow: 35px  35px 0 10px var(--white);
+    box-shadow: 35px  35px 0 10px whitesmoke;
     pointer-events: none;
 }
 .navigation ul li:hover a::after,
@@ -143,7 +150,7 @@ body{
     height: 50px;
     border-radius: 50%;
     background: transparent;
-    box-shadow: 35px  -35px 0 10px var(--white);
+    box-shadow: 35px  -35px 0 10px whitesmoke;
     pointer-events: none;
 }
 
@@ -289,17 +296,28 @@ body{
 .details .recentOders{
     position: relative;
     display: grid;
-    min-height: 500px;
+    height: auto;
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
     border-radius: 20px;
 }
 
+.details.tout{
+    grid-template-columns: 1fr;
+}
+.details .recentOders.tout{
+    display: grid;
+    flex-direction: column;
+}
+
+
+
 .cardHeader{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 .cardHeader h2{
@@ -314,6 +332,41 @@ body{
     text-decoration: none;
     color: var(--white);
     border-radius: 6px;
+    border: none;
+}
+.bot{
+    background: var(--white);
+    color: var(--blue);
+    font-weight: 600;
+    cursor: pointer;
+}
+.form {
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form div{
+    margin-left: 15px;
+}
+.labelle{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.labelle label{
+    font-weight: 600;
+}
+
+.labelle  select{
+    padding: 2px 5px;
+    font-weight: 500;
+    border-radius: 6px;
+    color: var(--black1);
+    border: none;
 }
 
 .details table{
@@ -334,6 +387,9 @@ body{
 .details .recentOders table tr:last-child{
     border-bottom: none;
 }
+.details .recentOders table td:nth-child(1){
+    text-align: center;
+}
 .details .recentOders table td:last-child{
     text-align: end;
 }
@@ -351,7 +407,7 @@ body{
     text-align: end;
 }
 .details .recentOders table tr td:nth-child(2){
-    text-align: end;
+    text-align: center;
 }
 .details .recentOders table tr td:nth-child(3){
     text-align: center;

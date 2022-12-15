@@ -8,7 +8,7 @@
             <?php if (isset($_GET["y"])): ?>
                 <h2>LISTE DES DEMANDES DE <?=find_adhérent_by_id((int)$_GET["y"])["PrénomAdhé"]; ?></h2>
             <?php else: ?>
-                <h2>LISTE DES DEMANDES DE LA BIBLIOTHEQUE</h2>
+                <h2>LISTE DES DEMANDES</h2>
             <?php endif ?>
             <a href="#" class="btn">View All</a>
         </div>
@@ -46,7 +46,7 @@
                                 <img src="Sources/Assets/duplicate-outline.svg" >
                             </div>
                         </td>
-                        <td><a href="#"><h4>Valider un pret</h4></a></td>
+                        <td><a href="#"><h4>Traiter une demande</h4></a></td>
                     </tr>
                     <tr>
                         <td width = "60px">
@@ -62,7 +62,7 @@
                             <img src="Sources/Assets/list-outline.svg" >
                             </div>
                         </td>
-                        <td><a href="index.php?base=connected&act=demandes"><h4>Lister les prêts</h4></a></td>
+                        <td><a href="index.php?base=connected&act=demandes"><h4>Lister les demandes</h4></a></td>
                     </tr>
                 </table>
             </div>
