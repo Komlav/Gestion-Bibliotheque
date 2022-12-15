@@ -6,4 +6,13 @@
         <li><a href="index.php?base=connexion">Se connecter</a></li>
     </ul>
 </div>
-<h1>Hello !</h1>
+<div class="body">
+    <div class="corp">
+        <h1>Bienvenue dans votre Bibliothèque </h1>
+        <a href="#">
+            <div class="button">
+                <p>Voir le catalogue</p>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,11 +1,4 @@
 <?php
-    function find_all_users():array{
-        return [
-            ["id" => 1, "login" => "user", "password" => "passer", "nom" => "TAMAKLOE", "prenom" => "Komlavi Nutekpor", "role" => "Responsable de la bibliothèque"],
-            ["id" => 2, "login" => "wane", "password" => "passer", "nom" => "WANE", "prenom" => "Baila", "role" => "Etudiant"]
-        ];
-    }
-
     function find_all_user_profil():array{
         return [
             ["id" => 1, "image" => "icon.jpeg", "id_user" => 1],
@@ -128,8 +121,9 @@
 
     function find_all_user():array{
         return [
-            ["id" => 1, "login" => "user", "password" => "passer", "nom" => "TAMAKLOE", "prenom" => "Komlavi Nutekpor", "role" => "AC"],
-            ["id" => 2, "login" => "wane", "password" => "passer", "nom" => "WANE", "prenom" => "Baila", "role" => "Etudiant"]
+            ["id" => 1, "login" => "user", "password" => "passer", "nom" => "TAMAKLOE", "prenom" => "Komlavi Nutekpor", "role" => "RB"],
+            ["id" => 2, "login" => "wane", "password" => "passer", "nom" => "WANE", "prenom" => "Baila", "role" => "AD"],
+            ["id" => 3, "login" => "astou", "password" => "passer", "nom" => "Astou", "prenom" => "Choco", "role" => "RP"]
         ];
     }
 ?>

@@ -11,8 +11,12 @@
                 }
                 if (isset($_GET["act"])) {
                     switch ($_GET["act"]) {
-                        case 'customers':
-                            load_view("Dashboard/Customers","base.dashboard");   
+                        case 'ouvgs':
+                            load_view("Dashboard/Lister.ouvrages","base.dashboard");   
+                            break;   
+                        case 'demandes':
+                            $data["demandes"] = find_all_demandes();
+                            load_view("Dashboard/Lister.demandes","base.dashboard",$data);   
                             break;   
                         case 'auteurs':
                             load_view("Dashboard/Lister.auteurs","base.dashboard");

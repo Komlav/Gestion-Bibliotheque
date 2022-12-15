@@ -5,8 +5,8 @@
     }
     
     function find_user_by_login_password(string $login, string $password):array|null{
-        // $users = find_all_users();
-        $users = PDO() -> query("SELECT * FROM `users`");
+        $users = find_all_user();
+        // $users = PDO() -> query("SELECT * FROM `users`");
         foreach ($users as $user) {
             if($user["login"] == $login && $user["password"] == $password){
                 return $user;
@@ -26,6 +26,15 @@
 
     function show_icon(string $f_name):string{
         return "<img src='Sources/Assets/Profil/$f_name' alt='icon'>";
+    }
+
+    function use_case(string $lien, string $fonction, string $icon){
+        echo "<li>";
+        echo "<a href='$lien'>";
+        echo "<span class='icon'><ion-icon name='$icon'></ion-icon></span>";
+        echo "<span class='title'>$fonction</span>";
+        echo "</a>";
+        echo "</li>";
     }
 
     /*------------------------------------------------------------------------------------------------------------ */
@@ -104,7 +113,7 @@
         return $retardaires;
     }
     function find_user_by_login_pwd(string $login, string $password):array|null{
-        $users = find_all_users();
+        $users = find_all_user();
         foreach ($users as $user) {
             if($user["login"] == $login && $user["password"] == $password){
                 return $user;

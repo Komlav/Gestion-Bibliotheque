@@ -30,32 +30,24 @@
     </div>
     <div class="recentCustomers">
         <div class="cardHeader">
-            <h2>Recent Customers</h2>
+            <h2>Vous pouvez...</h2>
         </div>
         <table>
             <tr>
                 <td width = "60px">
                     <div class="imgBx">
-                        <img src="Sources/Assets/Profils/icon.jpeg" >
+                        <img src="Sources/Assets/person-add-outline.svg" >
                     </div>
                 </td>
-                <td><a href="#"><h4>Lister les demandes</h4></a></td>
+                <td><a href="#"><h4>Ajouter un auteur</h4></a></td>
             </tr>
             <tr>
                 <td width = "60px">
                     <div class="imgBx">
-                        <img src="Sources/Assets/Profils/icon.jpeg" >
+                    <img src="Sources/Assets/list-outline.svg" >
                     </div>
                 </td>
-                <td><a href="#"><h4>Lister les prets</h4></a></td>
-            </tr>
-            <tr>
-                <td width = "60px">
-                    <div class="imgBx">
-                        <img src="Sources/Assets/Profils/icon.jpeg" >
-                    </div>
-                </td>
-                <td><a href="#"><h4>Lister les rayons</h4></a></td>
+                <td><a href="index.php?base=connected&act=auteurs"><h4>Lister les auteurs</h4></a></td>
             </tr>
         </table>
     </div>

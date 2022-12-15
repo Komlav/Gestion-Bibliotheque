@@ -152,7 +152,7 @@ body{
     width: calc(100% - 300px);
     left: 300px;
     min-height: 100vh;
-    background-color: var(--white);
+    background-color: whitesmoke;
     transition: 0.5s;
 }
 
@@ -357,7 +357,13 @@ body{
     text-align: center;
 }
 
-.status.delivred,.status.return{
+.status.delivred,
+.status.return,
+.status.Rejetté,
+.status.Accepter,
+.status.Encours,
+.status.Disponible,
+.status.Indisponible{
     padding: 2px 4px;
     color: var(--white);
     font-size: 14px;
@@ -371,11 +377,25 @@ body{
 .status.return{
     background: rgb(255, 153, 0);
 }
+.status.Rejetté{
+    background: red;
+}
+.status.Accepter{
+    background: green;
+}
+.status.Encours{
+    background: orange;
+}
+.status.Disponible{
+    background: green;
+}
+.status.Indisponible{
+    background: orangered;
+}
 
 .recentCustomers{
     position: relative;
-    display: grid;
-    min-height: 500px;
+    height: auto;
     padding: 20px;
     background: var(--white);
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
@@ -386,8 +406,11 @@ body{
     position: relative;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     overflow: hidden;
+}
+
+.recentCustomers .imgBx ion-icon{
+    font-size: px;
 }
  
 .recentCustomers .imgBx img{
@@ -398,21 +421,35 @@ body{
     height: 100%;
     object-fit: cover;
 }
+.recentCustomers .imgBx img{
+    color: wheat;
+}
 
 .recentCustomers table tr td{
     padding: 12px 10px;
 }
 
+.recentCustomers table tr td a{
+    text-decoration: none;
+    color: var(--black1);
+    font-weight: 600;
+}
+
+.recentCustomers table tr:hover td a:hover{
+    background: #287bff;
+    color: #fff;
+}
+
 .recentCustomers table tr td h4{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 1.2em;
 }
 
-.recentCustomers table tr td h4 span{
+/* .recentCustomers table tr td h4 span{
     font-size: 14px;
     color: var(--black2);
-}
+} */
 
 .recentCustomers table tr:hover{
     background: var(--blue); 
