@@ -341,7 +341,7 @@ body{
     cursor: pointer;
 }
 .form {
-    width: 300px;
+    width: auto;
     height: auto;
     display: flex;
     justify-content: center;
@@ -384,6 +384,9 @@ body{
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+.details .recentOders table thead tr:first-child{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
 .details .recentOders table tr:last-child{
     border-bottom: none;
 }
@@ -410,6 +413,12 @@ body{
     text-align: center;
 }
 .details .recentOders table tr td:nth-child(3){
+    text-align: center;
+}
+.details .recentOders table tr td:nth-child(4){
+    text-align: center;
+}
+.details .recentOders table tr td:nth-child(5){
     text-align: center;
 }
 
@@ -481,6 +490,11 @@ body{
     color: wheat;
 }
 
+.recentCustomers .ligne{
+    width: 500px;
+    height: auto;
+    display: flex;
+}
 .recentCustomers table tr td{
     padding: 12px 10px;
 }

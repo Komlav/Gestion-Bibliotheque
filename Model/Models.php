@@ -128,5 +128,15 @@
         }
         return null;
     }
+
+    function find_ouvrage_by_etat(string $etat):array|null{
+        $tri = [];
+        foreach (find_all_ouvrages() as $value) {
+            if ($value["Etat"] == $etat) {
+                $tri[] = $value;
+            }
+        }
+        return $tri;
+    }
     
 ?>

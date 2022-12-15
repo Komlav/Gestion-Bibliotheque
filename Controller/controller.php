@@ -18,8 +18,13 @@
                             $data["prets"] = lister_prets($_GET);
                             load_view("Dashboard/Lister.prets","base.dashboard",$data);   
                             break;   
+                        case 'expls':
+                            $data["prets"] = lister_prets($_GET);
+                            load_view("Dashboard/Lister.exemplaires","base.dashboard",$data);   
+                            break;   
                         case 'ouvgs':
-                            load_view("Dashboard/Lister.ouvrages","base.dashboard");   
+                            $data["ouvrages"] = lister_ouvrages($_GET);
+                            load_view("Dashboard/Lister.ouvrages","base.dashboard",$data);   
                             break;   
                         case 'demandes':
                             $data["demandes"] = find_all_demandes();
@@ -55,12 +60,22 @@
             case 'Trier':
                 header("location:index.php?base=connected&act=prêts&mode=flt&etat=$etat");
                 break;
+            case 'Filtrer':
+                header("location:index.php?base=connected&act=ouvgs&mode=flt&etat=$etat");
+                break;
             case 'connexion':
                 se_connecter($login,$psw);
                 break;
             default:
                 # code...
                 break;
+        }
+    }
+    function lister_ouvrages(array $request):array{
+        if ($request["mode"] == "flt") {
+            return find_ouvrage_by_etat($request["etat"]);
+        }elseif($request["mode"] == "all" || $request["etat"] == "all"){
+            return find_all_ouvrages();
         }
     }
 

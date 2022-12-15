@@ -19,7 +19,7 @@
                 }
             ?>
             <div class="form">
-                <form action="index.php?x=5" method="POST" class="form btn">
+                <form action="index.php" method="POST" class="form btn">
                     <div>
                         <h4>Filtré par : </h4>
                     </div>

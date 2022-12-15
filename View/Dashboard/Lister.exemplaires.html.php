@@ -34,7 +34,7 @@
                         print("<h2>LISTE DES OUVRAGES INDISPONIBLES</h2>");
                     }
                 }if($_GET["mode"] == "all" || $_GET["etat"] == "all"){
-                    print("<h2>LISTE DES OUVRAGES</h2>");
+                    print("<h2>LISTE DES EXEMPLAIRES</h2>");
                 }
             ?>
             <div class="form">
@@ -47,6 +47,8 @@
                         <select name="etat" id="">
                             <option value="Disponible">Disponible</option>
                             <option value="Indisponible">Indisponible</option>
+                            <option value="Pret">Prêtter</option>
+                            <option value="Détériorer">Prêtter</option>
                         </select>
                     </div>
                     <div>

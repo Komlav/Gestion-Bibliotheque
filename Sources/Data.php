@@ -22,6 +22,7 @@
         ];
     }
 
+
     function find_all_ouvrages():array{
         return [
             ["Id" => 1, "Titre" => "Une Vie De Boy", "DateEdition" => 1956, "Etat" => "Disponible", "Auteur_CodeAuteur" => 2, "IdRayon" => 2],
@@ -66,22 +67,22 @@
 
     function find_all_exemplaires():array{
         return [
-            ["idExemplaire" => 1, "Etat" => "Détérioré", "id_Ouvrage" => 1, "DateEnre" => 1991],
-            ["idExemplaire" => 2, "Etat" => "En prêt", "id_Ouvrage" => 8, "DateEnre" => 1956],
-            ["idExemplaire" => 3, "Etat" => "Détérioré", "id_Ouvrage" => 14, "DateEnre" => 1954],
-            ["idExemplaire" => 4, "Etat" => "En prêt", "id_Ouvrage" => 15, "DateEnre" => 1981],
-            ["idExemplaire" => 5, "Etat" => "En prêt", "id_Ouvrage" => 7, "DateEnre" => 1985],
-            ["idExemplaire" => 6, "Etat" => "Détérioré", "id_Ouvrage" => 9, "DateEnre" => 1995],
-            ["idExemplaire" => 7, "Etat" => "En prêt", "id_Ouvrage" => 11, "DateEnre" => 1992],
-            ["idExemplaire" => 8, "Etat" => "Détérioré", "id_Ouvrage" => 17, "DateEnre" => 2001],
-            ["idExemplaire" => 9, "Etat" => "En prêt", "id_Ouvrage" => 20, "DateEnre" => 2004],
-            ["idExemplaire" => 10, "Etat" => "Détérioré", "id_Ouvrage" => 16, "DateEnre" => 1995],
-            ["idExemplaire" => 11, "Etat" => "Disponible", "id_Ouvrage" => 5, "DateEnre" => 1980],
-            ["idExemplaire" => 12, "Etat" => "Disponible", "id_Ouvrage" => 7, "DateEnre" => 2002],
-            ["idExemplaire" => 13, "Etat" => "Disponible", "id_Ouvrage" => 8, "DateEnre" => 2012],
-            ["idExemplaire" => 14, "Etat" => "Disponible", "id_Ouvrage" => 13, "DateEnre" => 2021],
-            ["idExemplaire" => 15, "Etat" => "Disponible", "id_Ouvrage" => 9, "DateEnre" => 1988],
-            ["idExemplaire" => 16, "Etat" => "Disponible", "id_Ouvrage" => 3, "DateEnre" => 1999],
+            ["idExemplaire" => 1, "Etat" => "Détérioré", "id_Ouvrage" => 1, "DateEnre" => 1991, "Nombre" => 100],
+            ["idExemplaire" => 2, "Etat" => "En prêt", "id_Ouvrage" => 8, "DateEnre" => 1956, "Nombre" => 100],
+            ["idExemplaire" => 3, "Etat" => "Détérioré", "id_Ouvrage" => 14, "DateEnre" => 1954, "Nombre" => 100],
+            ["idExemplaire" => 4, "Etat" => "En prêt", "id_Ouvrage" => 15, "DateEnre" => 1981, "Nombre" => 100],
+            ["idExemplaire" => 5, "Etat" => "En prêt", "id_Ouvrage" => 7, "DateEnre" => 1985, "Nombre" => 100],
+            ["idExemplaire" => 6, "Etat" => "Détérioré", "id_Ouvrage" => 9, "DateEnre" => 1995, "Nombre" => 100],
+            ["idExemplaire" => 7, "Etat" => "En prêt", "id_Ouvrage" => 11, "DateEnre" => 1992, "Nombre" => 100],
+            ["idExemplaire" => 8, "Etat" => "Détérioré", "id_Ouvrage" => 17, "DateEnre" => 2001, "Nombre" => 100],
+            ["idExemplaire" => 9, "Etat" => "En prêt", "id_Ouvrage" => 20, "DateEnre" => 2004, "Nombre" => 100],
+            ["idExemplaire" => 10, "Etat" => "Détérioré", "id_Ouvrage" => 16, "DateEnre" => 1995, "Nombre" => 100],
+            ["idExemplaire" => 11, "Etat" => "Disponible", "id_Ouvrage" => 5, "DateEnre" => 1980, "Nombre" => 100],
+            ["idExemplaire" => 12, "Etat" => "Disponible", "id_Ouvrage" => 7, "DateEnre" => 2002, "Nombre" => 100],
+            ["idExemplaire" => 13, "Etat" => "Disponible", "id_Ouvrage" => 8, "DateEnre" => 2012, "Nombre" => 100],
+            ["idExemplaire" => 14, "Etat" => "Disponible", "id_Ouvrage" => 13, "DateEnre" => 2021, "Nombre" => 100],
+            ["idExemplaire" => 15, "Etat" => "Disponible", "id_Ouvrage" => 9, "DateEnre" => 1988, "Nombre" => 100],
+            ["idExemplaire" => 16, "Etat" => "Disponible", "id_Ouvrage" => 3, "DateEnre" => 1999, "Nombre" => 100]
         ];
     }
 
