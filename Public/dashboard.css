@@ -428,7 +428,9 @@ body{
 .status.Accepter,
 .status.Encours,
 .status.Disponible,
-.status.Indisponible{
+.status.Indisponible,
+.status.En,
+.status.Détérioré{
     padding: 2px 4px;
     color: var(--white);
     font-size: 14px;
@@ -455,7 +457,13 @@ body{
     background: green;
 }
 .status.Indisponible{
-    background: orangered;
+    background: red;
+}
+.status.En{
+    background: grey;
+}
+.status.Détérioré{
+    background: orange;
 }
 
 .recentCustomers{
