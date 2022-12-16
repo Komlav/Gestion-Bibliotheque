@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Public/dashboard.css">
+    <link rel="shortcut icon" href="Sources/Assets/book-stack.png" type="image/x-icon">
 </head>
 <body>
 <div class="container">
