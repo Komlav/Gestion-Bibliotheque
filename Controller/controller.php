@@ -19,7 +19,7 @@
                             load_view("Dashboard/Lister.prets","base.dashboard",$data);   
                             break;   
                         case 'expls':
-                            $data["prets"] = lister_prets($_GET);
+                            $data["exemplaires"] = lister_exemplaires($_GET);
                             load_view("Dashboard/Lister.exemplaires","base.dashboard",$data);   
                             break;   
                         case 'ouvgs':
@@ -57,13 +57,16 @@
     if (isset($_POST["btn-save"])){
         extract($_POST);
         switch ($_POST["btn-save"]) {
-            case 'Trier':
+            case 'Trier': /* Filtrer les prets */
                 header("location:index.php?base=connected&act=prêts&mode=flt&etat=$etat");
                 break;
-            case 'Filtrer':
+            case 'Filtrer': /* Filtrer ouvrages */
                 header("location:index.php?base=connected&act=ouvgs&mode=flt&etat=$etat");
                 break;
-            case 'connexion':
+            case 'Valider': /* Filtrer ouvrages */
+                header("location:index.php?base=connected&act=expls&mode=flt&etat=$etat");
+                break;
+            case 'connexion':/* Page de connexion */
                 se_connecter($login,$psw);
                 break;
             default:
@@ -71,6 +74,25 @@
                 break;
         }
     }
+
+    function lister_exemplaires(array $request):array{
+        if ($request["mode"] == "flt") {
+            if ($request["etat"] == "Disponible") {
+                return find_all_exemplaires_by_etat("Disponible");
+            }elseif ($request["etat"] == "Indisponible") {
+                return find_all_exemplaires_by_etat("Indisponible");
+            }elseif ($request["etat"] == "Pret") {
+                return find_all_exemplaires_by_etat("En prêt");
+            }elseif ($request["etat"] == "Détériorer") {
+                return find_all_exemplaires_by_etat("Détérioré");
+            }
+        }
+        if($request["mode"] == "all"){
+            return find_all_exemplaires();
+        }
+    }
+
+
     function lister_ouvrages(array $request):array{
         if ($request["mode"] == "flt") {
             return find_ouvrage_by_etat($request["etat"]);
