@@ -10,7 +10,7 @@
                         <img src="Sources/Assets/add-circle-outline.svg" >
                     </div>
                 </td>
-                <td><a href="#"><h4>Ajouter un ouvrage</h4></a></td>
+                <td><a href="#"><h4>Ajouter un exemplaire</h4></a></td>
             </tr>
             <tr>
                 <td width = "60px">
@@ -18,7 +18,7 @@
                     <img src="Sources/Assets/list-outline.svg" >
                     </div>
                 </td>
-                <td><a href="index.php?base=connected&act=ouvgs&mode=all"><h4>Lister les ouvrages</h4></a></td>
+                <td><a href="index.php?base=connected&act=ouvgs&mode=all"><h4>Lister les exemplaires</h4></a></td>
             </tr>
         </table>
     </div>
@@ -32,6 +32,10 @@
                         print("<h2>LISTE DES OUVRAGES DISPONIBLES</h2>");
                     }elseif ($_GET["etat"] == "Indisponible") {
                         print("<h2>LISTE DES OUVRAGES INDISPONIBLES</h2>");
+                    }elseif ($_GET["etat"] == "Pret") {
+                        print("<h2>LISTE DES OUVRAGES EN PRET</h2>");
+                    }elseif ($_GET["etat"] == "Détériorer") {
+                        print("<h2>LISTE DES OUVRAGES DETERIORER</h2>");
                     }
                 }if($_GET["mode"] == "all" || $_GET["etat"] == "all"){
                     print("<h2>LISTE DES EXEMPLAIRES</h2>");
@@ -48,11 +52,11 @@
                             <option value="Disponible">Disponible</option>
                             <option value="Indisponible">Indisponible</option>
                             <option value="Pret">Prêtter</option>
-                            <option value="Détériorer">Prêtter</option>
+                            <option value="Détériorer">Détériorer</option>
                         </select>
                     </div>
                     <div>
-                        <input type="submit" value="Filtrer" name="btn-save" class="btn bot">
+                        <input type="submit" value="Valider" name="btn-save" class="btn bot">
                     </div>
                 </form>
             </div>
@@ -61,24 +65,21 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>TITRE</th>
-                    <th>AUTEURS</th>
-                    <th>DATE-EDITION</th>
-                    <th>RAYONS</th>
+                    <th>OUVRAGE-EXEMPLAIRE</th>
+                    <th>DATE-ENRE</th>
+                    <th>NOMBRE</th>
                     <th>ETAT</th>
             </tr>
             </thead>
             <tbody>
-                <?php foreach ($ouvrages as $ouvrage):  ?>
+                <?php foreach ($exemplaires as $exemplaire):  ?>
                     <tr>
-                        <?php $auteur = find_auteur_by_id($ouvrage["Auteur_CodeAuteur"]); ?>
-                        <?php $rayon = find_rayon_by_id($ouvrage["IdRayon"]); ?>
-                        <td><?=($ouvrage["Id"]); ?> </td>
-                        <td><?=($ouvrage["Titre"]); ?></td>
-                        <td><?=($auteur["NomAuteur"]." ".$auteur["PrénomAuteur"]); ?></td>
-                        <td><?=($ouvrage["DateEdition"]); ?></td>
-                        <td><?=($rayon["NomRayon"]); ?></td>
-                        <td><span class="status <?=$ouvrage["Etat"];?>"><?php echo($ouvrage["Etat"]); ?></span></td> 
+                        <?php $ovg = find_ouvrage_by_id($exemplaire["id_Ouvrage"])["Titre"]; ?>
+                        <td><?=($exemplaire["idExemplaire"]); ?> </td>
+                        <td><?=$ovg?></td>
+                        <td><?=($exemplaire["DateEnre"]); ?></td>
+                        <td><?=($exemplaire["Nombre"]); ?></td>
+                        <td><span class="status <?=$exemplaire['Etat'];?>"><?php echo($exemplaire["Etat"]); ?></span></td> 
                     </tr>
                 <?php endforeach ?>
             </tbody>
