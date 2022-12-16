@@ -77,42 +77,55 @@
 
     function lister_exemplaires(array $request):array{
         if ($request["mode"] == "flt") {
-            if ($request["etat"] == "Disponible") {
-                return find_all_exemplaires_by_etat("Disponible");
-            }elseif ($request["etat"] == "Indisponible") {
-                return find_all_exemplaires_by_etat("Indisponible");
-            }elseif ($request["etat"] == "Pret") {
-                return find_all_exemplaires_by_etat("En prêt");
-            }elseif ($request["etat"] == "Détériorer") {
-                return find_all_exemplaires_by_etat("Détérioré");
+            switch ($request["etat"]) {
+                case 'Disponible':
+                    return find_all_exemplaires_by_etat("Disponible");
+                    break;
+                case 'Indisponible':
+                    return find_all_exemplaires_by_etat("Indisponible");
+                    break;
+                case 'Pret':
+                    return find_all_exemplaires_by_etat("En prêt");
+                    break;
+                case 'Détériorer':
+                    return find_all_exemplaires_by_etat("Détérioré");
+                    break;
             }
-        }
-        if($request["mode"] == "all"){
-            return find_all_exemplaires();
+        }else {
+                return find_all_exemplaires();
         }
     }
 
 
     function lister_ouvrages(array $request):array{
-        if ($request["mode"] == "flt") {
-            return find_ouvrage_by_etat($request["etat"]);
-        }elseif($request["mode"] == "all" || $request["etat"] == "all"){
-            return find_all_ouvrages();
+        switch ($request["mode"]) {
+            case 'flt':
+                return find_ouvrage_by_etat($request["etat"]);
+                break;
+            case 'all':
+                return find_ouvrage_by_etat($request["etat"]);
+                break;
         }
     }
 
     function lister_prets(array $request):array{
-        if ($request["mode"] == "flt") {
-            if ($request["etat"] == "rtd") {
-                return find_prets_retardataire();
-            }elseif ($request["etat"] == "ecr") {
-                return find_prets_retardataire(false);
-            }elseif ($request["etat"] == "rtn") {
-                // return find_prets_encours();
-        }
-        }
-        if($request["mode"] == "all" || $request["etat"] == "all"){
-            return find_all_prets();
+        switch ($request["mode"]) {
+            case 'flt':
+                switch ($request["etat"]) {
+                    case 'rtd':
+                        return find_prets_retardataire();
+                        break;
+                    case 'ecr':
+                        return find_prets_retardataire(false);
+                        break;
+                    case 'rtn':
+                        #code...
+                        break;
+                }
+                break;
+            case 'all':
+                return find_all_prets();
+                break;
         }
     }
 
