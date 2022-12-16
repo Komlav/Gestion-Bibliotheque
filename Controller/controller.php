@@ -97,7 +97,7 @@
                 return find_ouvrage_by_etat($request["etat"]);
                 break;
             case 'all':
-                return find_ouvrage_by_etat($request["etat"]);
+                return find_all_ouvrages();
                 break;
         }
     }

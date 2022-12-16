@@ -26,7 +26,6 @@
                     <div class="labelle">
                         <label for="etat">ETAT</label>
                         <select name="etat" id="">
-                            <option value="all">Tous</option>
                             <option value="rtd">En retard</option>
                             <option value="ecr">encours</option>
                             <option value="rtn">retourner</option>
