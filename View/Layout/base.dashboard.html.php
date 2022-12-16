@@ -24,7 +24,7 @@
                     <?=use_case("index.php?base=connected&act=ouvgs&mode=all", "Gérer les ouvrages", "book-outline")?>
                     <?=use_case("index.php?base=connected&act=auteurs", "Gérer les auteurs", "people-outline")?>
                     <?=use_case("index.php?base=connected&act=ryn", "Gérer les rayons", "layers-outline")?>
-                    <?=use_case("index.php?base=connected&act=expls", "Gérer les exemplaires", "library-outline")?>
+                    <?=use_case("index.php?base=connected&act=expls&mode=all", "Gérer les exemplaires", "library-outline")?>
                 <?php endif ?>
                 <?php if($_SESSION["user_connect"]["role"] == "RP"):?>
                     <?=use_case("index.php?base=connected&act=prêts&mode=all", "Lister les prêts", "list-outline")?>
