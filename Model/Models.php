@@ -93,6 +93,16 @@
         return null;
     }
 
+    function find_all_exemplaires_by_etat(string $etat):array|null{
+        $tri = [];
+        foreach (find_all_exemplaires() as $value) {
+            if ($value["Etat"] == $etat) {
+                $tri[] = $value;
+            }
+        }
+        return $tri;
+    }
+
     function find_ouvrage_by_id(int $id):array{
         foreach (find_all_ouvrages() as $ouv) {
             if ($ouv["Id"] == $id) {
@@ -115,7 +125,6 @@
                     $retardaires[] = $pret;
                 }
             }
-            
         }
         return $retardaires;
     }
