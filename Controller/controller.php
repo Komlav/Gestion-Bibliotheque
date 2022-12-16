@@ -38,16 +38,10 @@
                             unset($_SESSION["user_connect"]);
                             header("location:index.php?base=connexion");
                             break;
-                        default:
-                            # code...
-                            break;
                     }
                 }else {
                     load_view("Dashboard/Home","base.dashboard");
                 }
-            default:
-                # code...
-                break;
         }
     }else {
         load_view("Accueil","base.accueil");
@@ -133,7 +127,7 @@
         $user = find_user_by_login_password($login, $password);
         if ($user == null) {
             header("location:index.php?base=connexion");
-        }else {
+        }else{
             $_SESSION["user_connect"] = $user;
             header("location:index.php?base=connected");
         }
