@@ -97,7 +97,7 @@ body{
 .navigation ul li:active a:active,
 .navigation ul li:active a:active{
     color: var(--blue);
-    background: var(--white);
+    background: whitesmoke;
 }
 .navigation ul li:hover a,
 .navigation ul li.hovered a{
