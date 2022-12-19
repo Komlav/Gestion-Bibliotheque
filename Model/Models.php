@@ -5,8 +5,8 @@
     }
     
     function find_user_by_login_password(string $login, string $password):array|null{
-        $users = find_all_user();
-        // $users = PDO() -> query("SELECT * FROM `users`");
+        // $users = find_all_user();
+        $users = PDO() -> query("SELECT * FROM `users`");
         foreach ($users as $user) {
             if($user["login"] == $login && $user["password"] == $password){
                 return $user;
