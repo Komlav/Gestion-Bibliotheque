@@ -5,6 +5,9 @@
             case 'connexion':
                 load_view("Connexion","base.connexion");
                 break;
+            case 'account':
+                load_view("Créer.compte","creer");
+                break;
             case 'connected':
                 if (!isset($_SESSION["user_connect"])) {
                     header("location:index.php?base=connexion");
@@ -27,7 +30,7 @@
                             load_view("Dashboard/Lister.ouvrages","base.dashboard",$data);   
                             break;   
                         case 'demandes':
-                            $data["demandes"] = find_all_demandes();
+                            $data["demandes"] = lister_demandes();
                             load_view("Dashboard/Lister.demandes","base.dashboard",$data);   
                             break;   
                         case 'auteurs':
@@ -63,8 +66,22 @@
             case 'connexion':/* Page de connexion */
                 se_connecter($login,$psw);
                 break;
+            case 'Créer':/* Page de connexion */
+                create_account($_POST);
+                break;
             default:
                 # code...
+                break;
+        }
+    }
+
+    function lister_demandes():array|null{
+        switch ($_SESSION["user_connect"]['role']){
+            case 'AD':
+                return find_all_adhérent_dem($_SESSION["user_connect"]['id']);
+                break;
+            case 'RP':
+                return find_all_demandes();
                 break;
         }
     }
@@ -140,5 +157,25 @@
         require_once("View/$view.html.php");
         $content_view = ob_get_clean();
         require_once("View/Layout/$layout.html.php");
+    }
+
+    function create_account(array $request):void{
+        $PDO = new PDO("mysql:host=localhost;dbname=gestion bibliotheque","root","");
+        $PDO -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $req = $PDO -> prepare("INSERT INTO `utilisateurs`(`Nom`, `Prénom`, `login`, `password`, `email`, `addresse`) 
+        VALUES (:nom,:prenom,:log,:psw,:email,:addresse)");
+        $req->execute(array(
+            'nom' => $request["nom"],
+            'prenom' => $request["prenom"],
+            'log' => $request["login"],
+            'psw' => $request["password"],
+            'email' => $request["email"],
+            'addresse' => $request["addresse"]
+            ));
+        if($req ->rowCount() > 0){
+            echo "<p>Utilisateur insérer avec succes</p>";
+        } else {
+            echo "<p>An error has occurred.<br> The item was not added.</p>";
+        }
     }
 ?>

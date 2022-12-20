@@ -10,5 +10,5 @@ CREATE TABLE `gestion bibliotheque`.`users` (
 ) ENGINE = InnoDB;
 
 
-INSERT INTO `users`(`id`, `nom`, `prenom`, `login`, `password`, `role`) 
-VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
+INSERT INTO `utilisateurs`(`Nom`, `Prénom`, `login`, `password`, `email`, `addresse`, `id`) 
+VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')

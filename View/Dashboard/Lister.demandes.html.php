@@ -10,7 +10,24 @@
             <?php else: ?>
                 <h2>LISTE DES DEMANDES</h2>
             <?php endif ?>
-            <a href="#" class="btn">View All</a>
+            <div class="form">
+                <form action="index.php" method="POST" class="form btn">
+                    <div>
+                        <h4>Filtré par : </h4>
+                    </div>
+                    <div class="labelle">
+                        <label for="etat">ETAT</label>
+                        <select name="etat" id="">
+                            <option value="Encours">Encours</option>
+                            <option value="Accépté">Accépté</option>
+                            <option value="Rejetté">Rejetté</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit" value="Traiter" name="btn-save" class="btn bot">
+                    </div>
+                </form>
+            </div>
         </div>
         <table>
             <thead>

@@ -50,8 +50,8 @@
                     </label>
                 </div>
                 <div class="user">
-                    <a href='Sources/Assets/Profil/<?=find_user_profil_by_id($_SESSION["user_connect"]["id"]) ?>'>
-                        <img src='Sources/Assets/Profil/<?=find_user_profil_by_id($_SESSION["user_connect"]["id"]) ?>' alt='profil'>
+                    <a href='Sources/Assets/Profils/<?=find_user_profil_by_id($_SESSION["user_connect"]["id"]) ?>'>
+                        <img src='Sources/Assets/Profils/<?=find_user_profil_by_id($_SESSION["user_connect"]["id"]) ?>' alt='profil'>
                     </a>
                 </div>
             </div>

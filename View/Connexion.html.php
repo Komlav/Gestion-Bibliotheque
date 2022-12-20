@@ -14,7 +14,7 @@
             </div>
             <div class="links">
                 <a href="#">Mot de passe oublié</a>
-                <a href="#">Créer un compte</a>
+                <a href="index.php?base=account">Créer un compte</a>
             </div>
             <input type="submit" name = "btn-save" value="connexion">
             <div class="links acceuil">

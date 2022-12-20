@@ -2,7 +2,8 @@
     function find_all_user_profil():array{
         return [
             ["id" => 1, "image" => "icon.jpeg", "id_user" => 1],
-            ["id" => 2, "image" => "young-girl-3973379_1920.jpg", "id_user" => 2]
+            ["id" => 2, "image" => "young-girl-3973379_1920.jpg", "id_user" => 2],
+            ["id" => 3, "image" => "Default.svg", "id_user" => 3]
         ];
     }
 
@@ -113,10 +114,10 @@
 
     function find_all_demandes():array{
         return [
-            ["id_Dem" => 1, "id_adhérent" => 4, "Date" => "12/06/2021", "Etat" => "Encours"],
-            ["id_Dem" => 2, "id_adhérent" => 7, "Date" => "21/05/2021", "Etat" => "Rejetté"],
+            ["id_Dem" => 1, "id_adhérent" => 2, "Date" => "12/06/2021", "Etat" => "Encours"],
+            ["id_Dem" => 2, "id_adhérent" => 2, "Date" => "21/05/2021", "Etat" => "Rejetté"],
             ["id_Dem" => 3, "id_adhérent" => 5, "Date" => "13/01/2021", "Etat" => "Encours"],
-            ["id_Dem" => 4, "id_adhérent" => 9, "Date" => "18/01/2021", "Etat" => "Accepter"],
+            ["id_Dem" => 4, "id_adhérent" => 2, "Date" => "18/01/2021", "Etat" => "Accepter"],
             ["id_Dem" => 5, "id_adhérent" => 1, "Date" => "18/11/2021", "Etat" => "Accepter"]
         ];
     }

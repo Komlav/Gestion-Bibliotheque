@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2? family= Chivo+Mono:wght@100 & display=swap');
+
+:root{
+    --gri: grey;
+    --blanc: white;
+    --fume: whitesmoke;
+    --success: #2ecc71;
+    --error: #e74c3c;
+    --primary: #3498db;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', arial;
+}
+
+body{
+    background: var(--whitesmoke);
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 450px;
+    height: auto;
+    margin: 20px;
+    background: var(--blanc);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(5, 0, 0, 0.2)
+}
+
+.container h2{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.container .form{
+    padding: 30px;
+}
+
+.container .form .entete{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.container .form .form-control{
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.container .form .form-control label{
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gri);
+}
+
+.container .form .form-control input,textarea{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding-left: 10px;
+    border: 1px solid var(--gri);
+}
+
+.container .form .entete #prenom,#password-conf{
+    width: 95%;
+    margin-left: 10px;
+}
+
+.container .form .form-control input:focus,textarea:focus{
+    outline: 0;
+    border: 2px solid var(--gri) ;
+}
+
+.container .form .form-control.error input{
+    border-color: var(--error);
+}
+.container .form .form-control.success input{
+    border-color: var(--success);
+}
+
+.container .form .form-control small{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: var(--error);
+    visibility: hidden;
+}
+
+.container .form .form-control.error small{
+    visibility: visible;
+}
+
+.container .form #submit{
+    cursor: grab;
+    background: var(--primary);;
+    border-radius: 16px;
+    color: var(--blanc);
+    font-size: 25px;
+    font-weight: 600;
+}
