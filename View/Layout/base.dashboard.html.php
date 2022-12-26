@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tableau de bord</title>
     <link rel="stylesheet" href="Public/dashboard.css">
-    <link rel="shortcut icon" href="Sources/Assets/book-stack.png" type="image/x-icon">
 </head>
 <body>
 <div class="container">
         <div class="profil">
-            
             <div class="info">
                 <span><?=$_SESSION["user_connect"]["nom"]." ".$_SESSION["user_connect"]["prenom"];?></span>
                 <h1><?=$_SESSION["user_connect"]["role"];?></h1>
@@ -59,8 +57,8 @@
         </div>
     </div>
 
-    <script script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
-    <script script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script script  type="module"  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+    <script script  nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <script>
         //Menu toggle
@@ -83,9 +81,6 @@
         }
         list.forEach((item) =>
         item.addEventListener('mouseover',activeLink));
-
-        
-
     </script>
 </body>
 </html>

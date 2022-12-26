@@ -1,40 +1,18 @@
 <div class="cardBox">
-    <div class="card">
-        <div>
-            <div class="numbers"><?=count(find_all_auteurs())?></div>
-            <div class="cardName">Auteurs</div>
-        </div>
-        <div class="iconBx">
-            <ion-icon name="people-outline"></ion-icon>
-        </div>
-    </div>
-    <div class="card">
-        <div>
-            <div class="numbers"><?=count(find_all_rayons())?></div>
-            <div class="cardName">Rayons</div>
-        </div>
-        <div class="iconBx">
-            <ion-icon name="layers-outline"></ion-icon>
-        </div>
-    </div>
-    <div class="card">
-        <div>
-            <div class="numbers"><?=count(find_all_ouvrages())?></div>
-            <div class="cardName">Ouvrages</div>
-        </div>
-        <div class="iconBx">
-            <ion-icon name="book-outline"></ion-icon>
-        </div>
-    </div>
-    <div class="card">
-        <div>
-            <div class="numbers">257</div>
-            <div class="cardName">exemplaires</div>
-        </div>
-        <div class="iconBx">
-            <ion-icon name="library-outline"></ion-icon>
-        </div>
-    </div>
+    <?php if (isset($_SESSION["user_connect"])):?>
+        <?php if ($_SESSION["user_connect"]["role"] == "RB"):?>
+            <?= carte(count(find_all_auteurs()),"Auteurs","people");?>
+            <?= carte(count(find_all_rayons()),"Rayons","layers");?>
+            <?= carte(count(find_all_ouvrages()),"Ouvrages","book");?>
+            <?= carte(count(find_all_exemplaires()),"Exemplaires","library");?>
+        <?php endif ?>
+        <?php if ($_SESSION["user_connect"]["role"] == "RP"):?>
+            <?= carte(count(find_prets_retardataire(false)),"Prêts en cours","barcode");?>
+            <?= carte(count(find_dem_by_etat("Encours")),"Demandes en cours","accessibility");?>
+            <?= carte(count(find_prets_retardataire()),"Prêts en retards","alert");?>
+            <?= carte(count(find_all_exemplaires()),"Exemplaires","library");?>
+        <?php endif ?>
+    <?php endif ?>
 </div>
 
 
@@ -115,3 +93,18 @@
         </table>
     </div>
 </div>
+
+
+<?php 
+    function carte(int $data, string $libelle,string $icon):void{
+        print("<div class='card'>");
+            print("<div>");
+                print("<div class='numbers'>$data</div>");
+                print("<div class='cardName'>$libelle</div>");
+           print("</div>");
+            print("<div class='iconBx'>");
+                print("<ion-icon name='$icon-outline'></ion-icon>");
+            print("</div>");
+        print("</div>");
+    }
+?>

@@ -147,5 +147,15 @@
         }
         return $tri;
     }
+
+    function find_dem_by_etat(string $etat):array{
+        $res = [];
+        foreach (find_all_demandes() as $value) {
+            if ($value["Etat"] == $etat) {
+                $res[] = $value;
+            }
+        }
+        return $res;
+    }
     
 ?>
