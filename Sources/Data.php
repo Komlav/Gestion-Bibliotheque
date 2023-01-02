@@ -126,9 +126,9 @@
 
     function find_all_user():array{
         return [
-            ["id" => 1, "login" => "user", "password" => "passer", "nom" => "TAMAKLOE", "prenom" => "Komlavi Nutekpor", "role" => "RB"],
-            ["id" => 2, "login" => "wane", "password" => "passer", "nom" => "WANE", "prenom" => "Baila", "role" => "AD"],
-            ["id" => 3, "login" => "astou", "password" => "passer", "nom" => "Astou", "prenom" => "Choco", "role" => "RP"]
+            ["id" => 1, "login" => "customer", "password" => "passer", "nom" => "TAMAKLOE", "prenom" => "Komlavi", "role" => "RB"],
+            ["id" => 2, "login" => "divine", "password" => "passer", "nom" => "ANDZAYE", "prenom" => "dIVINE Anaclette", "role" => "AD"],
+            ["id" => 3, "login" => "astou", "password" => "passer", "nom" => "NDIAGNE", "prenom" => "Astou", "role" => "RP"]
         ];
     }
 ?>

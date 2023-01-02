@@ -1,42 +1,6 @@
 <?php
     require_once("Sources/Data.php");
-    function PDO(){
-        return new PDO("mysql:host=localhost;dbname=gestion bibliotheque","root","");
-    }
     
-    function find_user_by_login_password(string $login, string $password):array|null{
-        $users = find_all_user();
-        // $users = PDO() -> query("SELECT * FROM `users`");
-        foreach ($users as $user) {
-            if($user["login"] == $login && $user["password"] == $password){
-                return $user;
-            }
-        }
-        return null;
-    }
-
-    function find_user_profil_by_id(int $id):string|null{
-        foreach (find_all_user_profil() as $profil) {
-            if ($profil["id_user"] == $id) {
-                return $profil["image"];
-            }
-        }
-        return find_all_user_profil()[2]['image'];
-    }
-
-    function show_icon(string $f_name):string{
-        return "<img src='Sources/Assets/Profil/$f_name' alt='icon'>";
-    }
-
-    function use_case(string $lien, string $fonction, string $icon){
-        echo "<li>";
-        echo "<a href='$lien'>";
-        echo "<span class='icon'><ion-icon name='$icon'></ion-icon></span>";
-        echo "<span class='title'>$fonction</span>";
-        echo "</a>";
-        echo "</li>";
-    }
-
     /*------------------------------------------------------------------------------------------------------------ */
     function find_rayon_by_id(int $id):array|null{
         foreach (find_all_rayons() as $rayon) {
@@ -175,5 +139,43 @@
         }
         return $res;
     }
+
+    function PDO(){
+        return new PDO("mysql:host=localhost;dbname=gestion bibliotheque","root","");
+    }
+    
+    function find_user_by_login_password(string $login, string $password):array|null{
+        $users = find_all_user();
+        // $users = PDO() -> query("SELECT * FROM `users`");
+        foreach ($users as $user) {
+            if($user["login"] == $login && $user["password"] == $password){
+                return $user;
+            }
+        }
+        return null;
+    }
+
+    function find_user_profil_by_id(int $id):string|null{
+        foreach (find_all_user_profil() as $profil) {
+            if ($profil["id_user"] == $id) {
+                return $profil["image"];
+            }
+        }
+        return find_all_user_profil()[2]['image'];
+    }
+
+    function show_icon(string $f_name):string{
+        return "<img src='Sources/Assets/Profil/$f_name' alt='icon'>";
+    }
+
+    function use_case(string $lien, string $fonction, string $icon){
+        echo "<li>";
+        echo "<a href='$lien'>";
+        echo "<span class='icon'><ion-icon name='$icon'></ion-icon></span>";
+        echo "<span class='title'>$fonction</span>";
+        echo "</a>";
+        echo "</li>";
+    }
+
     
 ?>

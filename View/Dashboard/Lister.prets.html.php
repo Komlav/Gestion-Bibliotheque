@@ -82,28 +82,5 @@
             </tbody>
         </table>
     </div>
-        <!-- <div class="recentCustomers">
-            <div class="cardHeader">
-                <h2>Vous pouvez...</h2>
-            </div>
-            <table>
-                <tr>
-                    <td width = "60px">
-                        <div class="imgBx">
-                            <img src="Sources/Assets/person-add-outline.svg" >
-                        </div>
-                    </td>
-                    <td><a href="#"><h4>Ajouter un auteur</h4></a></td>
-                </tr>
-                <tr>
-                    <td width = "60px">
-                        <div class="imgBx">
-                        <img src="Sources/Assets/list-outline.svg" >
-                        </div>
-                    </td>
-                    <td><a href="index.php?base=connected&act=auteurs"><h4>Lister les auteurs</h4></a></td>
-                </tr>
-            </table>
-        </div> -->
     </div>
 </div>

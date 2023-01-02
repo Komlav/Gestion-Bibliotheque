@@ -70,9 +70,6 @@
             case 'Créer':/* Page de connexion */
                 create_account($_POST);
                 break;
-            default:
-                # code...
-                break;
         }
     }
 
@@ -104,7 +101,7 @@
                     break;
             }
         }else {
-                return find_all_exemplaires();
+            return find_all_exemplaires();
         }
     }
 
@@ -205,10 +202,5 @@
             'email' => $request["email"],
             'addresse' => $request["addresse"]
             ));
-        // if($req ->rowCount() > 0){
-        //     echo "<p>Utilisateur insérer avec succes</p>";
-        // } else {
-        //     echo "<p>An error has occurred.<br> The item was not added.</p>";
-        // }
     }
 ?>
