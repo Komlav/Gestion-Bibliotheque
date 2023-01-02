@@ -111,22 +111,40 @@
         }
     }
 
-    function find_prets_retardataire(bool $signe=true):array{
+    function find_prets_retardataire(array $data,bool $signe=true,bool $encours=False):array{
         $retardaires = [];
-        foreach (find_all_prets() as $pret) {
-            $dateDebut = strtotime($pret["Date"]."+2 week +1 day"); 
-            $DateFin = strtotime($pret["DateRéel"]);
-            if ($signe==true) {
-                if ($dateDebut > $DateFin ) {
-                    $retardaires[] = $pret;
-                }
+        $cours =[];
+        foreach ($data as $pret) {
+            $dateRetour = strtotime($pret["Date"]."+2 week +1 day");
+            if (strlen($pret["DateRéel"]) == 0) {
+                $cours[] = $pret;
             }else {
-                if ($dateDebut < $DateFin ) {
-                    $retardaires[] = $pret;
+                $DateReel = strtotime($pret["DateRéel"]);
+                if ($signe==true) {
+                    if ($dateRetour > $DateReel ) {
+                        $retardaires[] = $pret;
+                    }
+                }else {
+                    if ($dateRetour < $DateReel ) {
+                        $retardaires[] = $pret;
+                    }
                 }
             }
+            
+            
         }
-        return $retardaires;
+        
+        return $encours ? $cours : $retardaires   ;
+    }
+
+    function find_all_prets_by_adherent(int $id):array{
+        $T_Pres = [];
+        foreach (find_all_prets() as $pret) {
+            if ($pret["idAdhérent"] == $id) {
+                $T_Pres[] = $pret;
+            }
+        }
+        return $T_Pres;
     }
     function find_user_by_login_pwd(string $login, string $password):array|null{
         $users = find_all_user();

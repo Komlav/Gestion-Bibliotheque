@@ -55,7 +55,8 @@
         extract($_POST);
         switch ($_POST["btn-save"]) {
             case 'Trier': /* Filtrer les prets */
-                header("location:index.php?base=connected&act=prêts&mode=flt&etat=$etat");
+                $mode = $etat == "all" ? "all" : "flt";
+                header("location:index.php?base=connected&act=prêts&mode=$mode&etat=$etat&ad=$adhérent");
                 break;
             case 'Filtrer': /* Filtrer ouvrages */
                 header("location:index.php?base=connected&act=ouvgs&mode=flt&etat=$etat");
@@ -120,25 +121,57 @@
     }
 
     function lister_prets(array $request):array{
+        switch ($_SESSION["user_connect"]["role"]) {
+            case 'RP':
+                if (isset($request["ad"]) && $request["ad"] != "all"){
+                    return ad($request,$request["ad"]);
+                }
+                switch ($request["mode"]) {
+                    case 'flt':
+                        switch ($request["etat"]) {
+                            case 'rtd':
+                                return find_prets_retardataire(find_all_prets());
+                                break;
+                            case 'ecr':
+                                return find_prets_retardataire(find_all_prets(),false,true);
+                                break;
+                            case 'rtn':
+                                return find_prets_retardataire(find_all_prets(),false);
+                                break;
+                        }
+                        break;
+                    case 'all':
+                        return find_all_prets();
+                        break;
+                }
+                
+                break;
+            case 'AD':
+                return ad($request,$_SESSION["user_connect"]["id"]);
+                break;
+        }
+    }
+
+    function ad(array $request,int $id):array{
         switch ($request["mode"]) {
             case 'flt':
                 switch ($request["etat"]) {
                     case 'rtd':
-                        return find_prets_retardataire();
+                        return find_prets_retardataire(find_all_prets_by_adherent($id));
                         break;
                     case 'ecr':
-                        return find_prets_retardataire(false);
+                        return find_prets_retardataire(find_all_prets_by_adherent($id),false,true);
                         break;
                     case 'rtn':
-                        #code...
+                        return find_prets_retardataire(find_all_prets_by_adherent($id),false);
                         break;
                 }
                 break;
             case 'all':
-                return find_all_prets();
+                return find_all_prets_by_adherent($id);
                 break;
-        }
     }
+}
 
     function se_connecter(string $login, string $password):void{
         $user = find_user_by_login_password($login, $password);
@@ -172,10 +205,10 @@
             'email' => $request["email"],
             'addresse' => $request["addresse"]
             ));
-        if($req ->rowCount() > 0){
-            echo "<p>Utilisateur insérer avec succes</p>";
-        } else {
-            echo "<p>An error has occurred.<br> The item was not added.</p>";
-        }
+        // if($req ->rowCount() > 0){
+        //     echo "<p>Utilisateur insérer avec succes</p>";
+        // } else {
+        //     echo "<p>An error has occurred.<br> The item was not added.</p>";
+        // }
     }
 ?>

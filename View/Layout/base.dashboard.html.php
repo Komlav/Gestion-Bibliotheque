@@ -30,6 +30,7 @@
                 <?php endif ?>
                 <?php if($_SESSION["user_connect"]["role"] == "AD"):?>
                     <?=use_case("index.php?base=connected&act=demandes", "Voir ses demandes", "hand-left")?>
+                    <?=use_case("index.php?base=connected&act=prêts&mode=all", "Lister ses prêts", "list-outline")?>
                 <?php endif ?>
                 <?=use_case("#","Mon profil","person-circle-outline")?>
                 <?=use_case("index.php","Se déconnecter","log-out-outline")?>

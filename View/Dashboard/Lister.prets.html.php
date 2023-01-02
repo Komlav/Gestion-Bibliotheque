@@ -18,18 +18,33 @@
                     print("<h2>LISTE DES PRETS</h2>");
                 }
             ?>
-            <div class="form">
+            <div class="form pret">
                 <form action="index.php" method="POST" class="form btn">
                     <div>
                         <h4>Filtré par : </h4>
                     </div>
-                    <div class="labelle">
-                        <label for="etat">ETAT</label>
-                        <select name="etat" id="">
-                            <option value="rtd">En retard</option>
-                            <option value="ecr">encours</option>
-                            <option value="rtn">retourner</option>
-                        </select>
+                    <div class="labelle Nom">
+                        <?php if($_SESSION["user_connect"]["role"] == "RP"):?>
+                            <div class="flt">
+                                <label for="adhérent">Nom & prénom</label>
+                                <select name="adhérent" id="">
+                                    <option value="all">Tous</option>
+                                    <?php foreach(find_all_adhérents() as $adh):?>
+                                        <option value="<?=$adh['Id_Adérent']?>"><?=$adh["NomAdhé"]." ".$adh["PrénomAdhé"]?></option>
+                                    <?php endforeach?>
+                                </select>
+                            </div>
+                        <?php endif?>
+                         <div class="flt">
+                            <label for="etat">ETAT</label>
+                            <select name="etat" id="">
+                                <option value="all">Tous</option>
+                                <option value="rtd">En retard</option>
+                                <option value="ecr">encours</option>
+                                <option value="rtn">retourner</option>
+                            </select>
+                         </div>
+                       
                     </div>
                     <div>
                         <input type="submit" value="Trier" name="btn-save" class="btn bot">
@@ -61,8 +76,7 @@
                         <td><?=($pret["Date"]); ?></td>
                         <td><?=($pret["DateRetour"]); ?></td>
                         <td><?=$pret["DateRéel"]; ?></td> 
-                        <td><?=$pret["Etat"]; ?></td> 
-                        
+                        <td><span class="status <?=$pret["Etat"];?>"><?php echo($pret["Etat"]); ?></span></td>            
                     </tr>
                 <?php endforeach ?>
             </tbody>

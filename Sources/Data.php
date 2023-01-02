@@ -52,16 +52,18 @@
 
     function find_all_prets():array{
         return [
-            ["Id_Pret" => 1, "Date" => "01/12/2021", "DateRetour" => "16/12/2021", "DateRéel" => "11/12/2021", "Id_Exemplaire" => 1, "idAdhérent" => 2, "Etat" => "Encours"],
+            ["Id_Pret" => 1, "Date" => "01/12/2021", "DateRetour" => "16/12/2021", "DateRéel" => "", "Id_Exemplaire" => 1, "idAdhérent" => 2, "Etat" => "Encours"],
             ["Id_Pret" => 2, "Date" => "09/11/2022", "DateRetour" => "24/11/2022", "DateRéel" => "29/11/2022", "Id_Exemplaire" => 7, "idAdhérent" => 8, "Etat" => "Retard"],
             ["Id_Pret" => 3, "Date" => "15/10/2022", "DateRetour" => "30/10/2022", "DateRéel" => "20/10/2024", "Id_Exemplaire" => 5, "idAdhérent" => 4, "Etat" => "Retourner"],
             ["Id_Pret" => 4, "Date" => "08/10/2021", "DateRetour" => "23/10/2021", "DateRéel" => "29/10/2021", "Id_Exemplaire" => 12, "idAdhérent" => 7, "Etat" => "Retard"],
             ["Id_Pret" => 5, "Date" => "01/02/2021", "DateRetour" => "16/02/2021", "DateRéel" => "18/02/2021", "Id_Exemplaire" => 9, "idAdhérent" => 9, "Etat" =>  "Retard"],
             ["Id_Pret" => 6, "Date" => "15/02/2022", "DateRetour" => "02/03/2022", "DateRéel" => "20/02/2022", "Id_Exemplaire" => 13, "idAdhérent" => 3, "Etat" => "Retourner"],
             ["Id_Pret" => 7, "Date" => "24/03/2020", "DateRetour" => "10/04/2020", "DateRéel" => "28/07/2021", "Id_Exemplaire" => 10, "idAdhérent" => 1, "Etat" => "Retourner"],
-            ["Id_Pret" => 8, "Date" => "23/07/2021", "DateRetour" => "07/08/2021", "DateRéel" => "29/02/2022", "Id_Exemplaire" => 2, "idAdhérent" => 6, "Etat" => "Retourner"],
-            ["Id_Pret" => 9, "Date" => "05/03/2022", "DateRetour" => "20/03/2022", "DateRéel" => "10/03/2022", "Id_Exemplaire" => 9, "idAdhérent" => 10, "Etat" => "Encours"],
-            ["Id_Pret" => 10, "Date" => "02/09/2021", "DateRetour" => "17/09/2021", "DateRéel" => "19/09/2021", "Id_Exemplaire" => 3, "idAdhérent" => 5, "Etat" => "Retard"]
+            ["Id_Pret" => 8, "Date" => "01/12/2021", "DateRetour" => "16/12/2021", "DateRéel" => "11/12/2021", "Id_Exemplaire" => 1, "idAdhérent" => 2, "Etat" => "Retourner"], 
+            ["Id_Pret" => 9, "Date" => "01/12/2021", "DateRetour" => "16/12/2021", "DateRéel" => "20/12/2021", "Id_Exemplaire" => 1, "idAdhérent" => 2, "Etat" => "Retard"],
+            ["Id_Pret" => 10, "Date" => "23/07/2021", "DateRetour" => "07/08/2021", "DateRéel" => "29/02/2022", "Id_Exemplaire" => 2, "idAdhérent" => 6, "Etat" => "Retourner"],
+            ["Id_Pret" => 11, "Date" => "05/03/2022", "DateRetour" => "20/03/2022", "DateRéel" => "", "Id_Exemplaire" => 9, "idAdhérent" => 10, "Etat" => "Encours"],
+            ["Id_Pret" => 12, "Date" => "02/09/2021", "DateRetour" => "17/09/2021", "DateRéel" => "19/09/2021", "Id_Exemplaire" => 3, "idAdhérent" => 5, "Etat" => "Retard"]
         ];
     }
 

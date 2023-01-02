@@ -255,7 +255,8 @@ body{
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
 }
 
-.cardBox .card .numbers{
+
+.cardBox .card .numbers {
     position: relative;
     font-weight: 500;
     font-size: 2.5em;
@@ -351,9 +352,24 @@ body{
     margin-left: 15px;
 }
 .labelle{
-    width: 100px;
+    width:auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.flt{
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.Nom{
+    width: auto;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -430,7 +446,9 @@ body{
 .status.Disponible,
 .status.Indisponible,
 .status.En,
-.status.Détérioré{
+.status.Détérioré,
+.status.Retard,
+.status.Retourner{
     padding: 2px 4px;
     color: var(--white);
     font-size: 14px;
@@ -444,7 +462,7 @@ body{
 .status.return{
     background: rgb(255, 153, 0);
 }
-.status.Rejetté{
+.status.Rejetté,.status.Retourner{
     background: red;
 }
 .status.Accepter{
@@ -460,6 +478,9 @@ body{
     background: red;
 }
 .status.En{
+    background: grey;
+}
+.status.Retard{
     background: grey;
 }
 .status.Détérioré{
